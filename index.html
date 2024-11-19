@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=American+Captain&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'American Captain', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust height to remove empty space below */
+            flex-direction: column;
+            transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for background and text color */
+        }
+        h1 {
+            animation: move-up 1s 1s forwards;
+            position: relative;
+            top: 0;
+        }
+        h2 {
+            opacity: 0;
+            font-size: 1.5em;
+            animation: fade-in 1.5s 3s forwards;
+            cursor: pointer;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 0;
+            opacity: 0;
+            transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for button group */
+        }
+        @keyframes move-up {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20vh);
+            }
+        }
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fade-in-buttons {
+            0% {
+                opacity: 0;
+                top: 0;
+            }
+            100% {
+                opacity: 1;
+                top: -20vh;
+            }
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+            transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for dark mode */
+        }
+        .dark-mode h1, .dark-mode h2 {
+            color: #fff;
+        }
+        .dark-mode #dark-mode-toggle {
+            background-color: #333;
+            transition: background-color 0.5s ease; /* Smooth transition for dark mode toggle */
+        }
+        .dark-mode #dark-mode-toggle i {
+            content: "light_mode";
+            color: #fff;
+        }
+        .light-mode #dark-mode-toggle {
+            background-color: #fff;
+            transition: background-color 0.5s ease; /* Smooth transition for light mode toggle */
+        }
+        .light-mode #dark-mode-toggle i {
+            content: "dark_mode";
+            color: #333;
+        }
+        .button-group button {
+            box-shadow: none; /* Remove white glow on the buttons */
+        }
+    </style>
+    <title>American Captain Example</title>
+</head>
+<body>
+    <div style="height: 50vh;"></div> <!-- Add empty space above the text -->
+    <h1>Hi There!</h1>
+    <div class="button-group" style="opacity: 0; top: 5vh;">
+        <a href="contact.html"><button id="contact">Contact</button></a>
+        <a href="socials.html"><button id="socials">Socials</button></a>
+        <a href="portfolio.html"><button id="portfolio">Portfolio</button></a>
+    </div>
+    <h2 id="welcome">About me</h2>
+    <div style="height: 50vh;"></div> <!-- Adjust empty space below the text -->
+    <script>
+        document.getElementById("welcome").addEventListener("click", function() {
+            // Removed scrolling functionality
+        });
+    </script>
+</body>
+<button id="dark-mode-toggle" style="position: fixed; top: 10px; left: 10px; border-radius: 50%; width: 50px; height: 50px; background-color: #fff; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: background-color 0.5s ease;">
+    <i class="material-icons" style="color: #333;">dark_mode</i>
+</button>
+<script>
+    document.getElementById("dark-mode-toggle").addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+        document.body.classList.toggle("light-mode");
+        document.querySelector(".button-group").classList.toggle("dark-mode");
+        document.querySelector(".button-group").classList.toggle("light-mode");
+    });
+    document.querySelector("h1").addEventListener("animationend", function() {
+        document.querySelector(".button-group").style.animation = "fade-in-buttons 1s forwards";
+        document.querySelector(".button-group").style.opacity = "1";
+    });
+</script>
+</html>

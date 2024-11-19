@@ -1,0 +1,45 @@
+.button-group {
+    background: transparent; /* Ensure button group has a transparent background */
+}
+
+.button-group button {
+    margin: 0 10px;
+    padding: 10px 20px; /* Add padding for better appearance */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* More rounded corners */
+    background: linear-gradient(145deg, #007BFF, #0056b3); /* Gradient background */
+    color: white; /* Text color */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 5px 5px 15px #a3a3a3, -5px -5px 15px #ffffff; /* Shadow for depth */
+    transition: background 0.3s ease, transform 0.2s, box-shadow 0.3s ease; /* Smooth transitions */
+    outline: none; /* Remove outline */
+}
+
+.button-group button:hover {
+    background: linear-gradient(145deg, #0056b3, #004085); /* Darker gradient on hover */
+    transform: translateY(-2px); /* Slightly lift on hover */
+    box-shadow: 2px 2px 10px #a3a3a3, -2px -2px 10px #ffffff; /* Adjust shadow on hover */
+}
+
+.button-group button:active {
+    background: linear-gradient(145deg, #004085, #003057); /* Even darker gradient when active */
+    transform: translateY(2px); /* Slightly lower when active */
+    box-shadow: none; /* Remove shadow when active */
+}
+
+/* Remove outline on focus */
+.button-group button:focus {
+    outline: none; /* Ensure no outline appears on focus */
+}
+
+/* Dark mode styles for buttons */
+.dark-mode .button-group button {
+    background: linear-gradient(145deg, #444, #666); /* Darker gradient for dark mode */
+    color: #fff; /* White text for dark mode */
+}
+
+.light-mode .button-group button {
+    background: linear-gradient(145deg, #007BFF, #0056b3); /* Original gradient for light mode */
+    color: white; /* Original text color */
+}
